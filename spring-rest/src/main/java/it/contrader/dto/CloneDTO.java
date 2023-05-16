@@ -2,24 +2,23 @@ package it.contrader.dto;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import it.contrader.model.UserTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
-public class UserDTO {
+@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="id")
+public class CloneDTO {
 
-	private long id;
-	
-	private String username;
-	
-	private String password;
+    private long id;
 
-	private UserTypeEnum usertype;
-	
+    private DettagliClone dettagliClone;
 
+    private String codiceIdentificativo;
+
+    private String username;
 }

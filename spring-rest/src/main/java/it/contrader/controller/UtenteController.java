@@ -8,21 +8,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import it.contrader.dto.LoginDTO;
-import it.contrader.dto.UserDTO;
-import it.contrader.service.UserService;
+import it.contrader.dto.UtenteDTO;
+import it.contrader.service.UtenteService;
 
 @RestController
 @RequestMapping("/user")
 @CrossOrigin(origins = "http://localhost:4200")
-public class UserController extends AbstractController<UserDTO>{
+public class UtenteController extends AbstractController<UtenteDTO>{
 	
 	@Autowired
-	private UserService userService;
+	private UtenteService utenteService;
 
 
 	//POST Angular a UserDTO
 	@PostMapping(value = "/login")
-	public UserDTO login( @RequestBody LoginDTO loginDTO ) {
-		return userService.findByUsernameAndPassword(loginDTO.getUsername(), loginDTO.getPassword());
+	public UtenteDTO login(@RequestBody LoginDTO loginDTO ) {
+		return utenteService.findByUsernameAndPassword(loginDTO.getUsername(), loginDTO.getPassword());
 	}
 }

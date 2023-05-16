@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Utente {
 	
 
 	@Id
@@ -24,6 +24,12 @@ public class User {
 	
 	private String password;
 
-	private UserTypeEnum usertype;
-	
+	private String nome;
+
+	private String cognome;
+
+	private String telefono;
+
+	private String email;
+
 }
