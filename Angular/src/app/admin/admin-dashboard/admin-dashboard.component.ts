@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserDTO } from 'src/dto/userdto';
+import { UsertypeEnum } from 'src/dto/usertype';
 import { AuthService } from 'src/service/auth.service';
 
 /**
@@ -19,9 +21,7 @@ export class AdminDashboardComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.auth.getCurrentUser();
-    if(this.user === null || this.user.usertype != 1){
-      alert('non hai le autorizzazioni necessarie per accedere a questa pagina');
-    }
+    this.auth.isAdminOrUser(this.user, 'ADMIN');
   }
 
 }

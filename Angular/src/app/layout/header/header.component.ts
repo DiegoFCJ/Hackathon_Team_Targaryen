@@ -8,8 +8,8 @@ import { AuthService } from 'src/service/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
   user: UserDTO = new UserDTO;
+  
   constructor(private auth: AuthService) { }
 
   ngOnInit() {

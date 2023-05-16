@@ -1,10 +1,10 @@
-import {Usertype} from './usertype';
+import {UsertypeEnum} from './usertype';
 
 /**
  * Classe DTO di User. DEVE essere uguale (stesso nome classe, stessi attributi e stessi nomi) a
  * quello nel backend. 
  * 
- * @see Usertype
+ * @see UsertypeEnum
  * 
  * @author Vittorio Valent
  */
@@ -16,7 +16,7 @@ export class UserDTO {
 
    password: string;
 
-   usertype: Usertype;
+   usertype: UsertypeEnum;
 
 }
 
