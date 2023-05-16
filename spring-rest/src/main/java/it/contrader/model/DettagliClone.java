@@ -34,7 +34,7 @@ public class DettagliClone {
     private String nazionalita;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "IDUtente", nullable = false, referencedColumnName = "UniqueID")
+    @JoinColumn(name = "IDUtente")
     private Utente utente;
 
 
