@@ -3,6 +3,7 @@ import { LoginDTO } from 'src/dto/logindto';
 import { NgForm } from '@angular/forms';
 import { UserService } from 'src/service/user.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   loginDTO: LoginDTO;
 
-  constructor(private service: UserService, private router: Router) { }
+  constructor(private service: UserService, private router: Router, private auth: AuthService) { }
 
   ngOnInit() {
   }
@@ -21,10 +22,10 @@ export class LoginComponent implements OnInit {
   login(f: NgForm): void {
     this.loginDTO = new LoginDTO(f.value.username, f.value.password);
 
-    this.service.login(this.loginDTO).subscribe((user) => {
+    this.auth.login(this.loginDTO).subscribe((user) => {
 
       if (user != null) {
-        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.auth.saveUserInLocalStorage(user);
 
         switch (user.usertype.toString()) {
           case 'ADMIN': {
@@ -32,7 +33,7 @@ export class LoginComponent implements OnInit {
             break;
           }
           case 'USER': {
-            this.router.navigate(['/user-dashboard']);
+            this.router.navigate(['/admin-dashboard']);
             break;
           }
           default:

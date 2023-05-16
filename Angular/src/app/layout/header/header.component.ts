@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserDTO } from 'src/dto/userdto';
+import { AuthService } from 'src/service/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -9,10 +10,10 @@ import { UserDTO } from 'src/dto/userdto';
 export class HeaderComponent implements OnInit {
 
   user: UserDTO = new UserDTO;
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem('currentUser'));
+    this.user = this.auth.getCurrentUser();
   }
 
 }

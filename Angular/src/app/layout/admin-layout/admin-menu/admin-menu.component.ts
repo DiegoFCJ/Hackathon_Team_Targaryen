@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/service/auth.service';
 
 @Component({
   selector: 'app-admin-menu',
@@ -12,15 +13,10 @@ export class AdminMenuComponent implements OnInit {
   isClientCollapsed = false;
   isAccountCollapsed = false;
 
-  constructor(private router: Router) {
+  constructor(private auth: AuthService) {
   }
 
   ngOnInit() {
-  }
-
-  logout() {
-    localStorage.clear();
-    this.router.navigateByUrl('');
   }
 
   userscollapse() {

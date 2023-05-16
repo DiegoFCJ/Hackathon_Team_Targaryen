@@ -3,16 +3,6 @@ package it.contrader.converter;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Questa classe implementa i metodi che convertono le liste.
- *
- * @author Vittorio Valent & Girolamo Murdaca
- *
- * @param <Entity>
- * @param <DTO>
- * 
- * @see Converter
- */
 public abstract class AbstractConverter<Entity,DTO> implements Converter<Entity,DTO> {
 
 	public List<Entity> toEntityList (Iterable<DTO> listDTO) {

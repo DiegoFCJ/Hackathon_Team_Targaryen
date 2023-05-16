@@ -6,19 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import it.contrader.converter.Converter;
 
-
-/**
- * Questa classe astratta implementa tutti i metodi CRUD firmati in ServiceDTO.
- * Il converter agisce due volte nei metodi  insert e update per avere sia come input che come output
- * un oggetto DTO.
- * 
- * @author Vittorio Valent & Girolamo Murdaca
- *
- * @param <Entity>
- * @param <DTO>
- * 
- * @see ServiceDTO
- */
 public abstract class AbstractService<Entity,DTO> implements ServiceDTO<DTO> {
 	
 	@Autowired
