@@ -1,7 +1,7 @@
 export const Mock = [
   {
     id: 0,
-    nome: 'Paolo',
+    nome: '',
     cognome: 'Ponzoni',
     messaggi: [
       { messaggio: 'ciao me', mio: false },
@@ -22,17 +22,16 @@ export const Mock = [
   },
   {
     id: 0,
+
     nome: 'Zio',
     cognome: 'Peppino',
     messaggi: [
-      { messaggio: 'ciao fuck', mio: false },
-      { messaggio: 'ciao a bello', mio: true },
-      { messaggio: 'ciao fuck', mio: false },
-      { messaggio: 'ciao a bello', mio: true },
-      { messaggio: 'ciao fuck', mio: false },
-      { messaggio: 'ciao a bello', mio: true },
-      { messaggio: 'ciao fuck', mio: false },
-      { messaggio: 'ciao a bello', mio: true },
+      { messaggio: 'Ciao Zio Peppino', mio: true },
+      { messaggio: 'Ciao Pasquale, Come va la scuola?', mio: false },
+      { messaggio: 'Bene, grazie! Sono impegnato con gli studi, ma sto cercando di tenermi aggiornato su tutto. Sai, ho un compito di matematica difficile da fare e mi sto bloccando su un problema. Potresti aiutarmi?', mio: true },
+      { messaggio: 'Nessuno spiega come te zio!', mio: true },
+      { messaggio: 'Sai mi mancano tanto i tuoi consigli', mio: true },
+      { messaggio: 'Mi manchi tanto anche tu', mio: false },
     ],
     active: false,
   },
@@ -40,14 +39,19 @@ export const Mock = [
     id: 0,
     nome: 'Zio',
     cognome: 'Mariano',
-    messaggi: [{ messaggio: 'ciao fuck', mio: false }],
+    messaggi: [{ messaggio: '', mio: false }],
     active: false,
   },
   {
     id: 0,
     nome: 'Nonno',
     cognome: 'Gianni',
-    messaggi: [{ messaggio: 'ciao Onnis', mio: false }],
+    messaggi: [
+      { messaggio: 'ciao Pasquale', mio: false },
+      { messaggio: 'ciao Nonno', mio: true },
+      { messaggio: 'ti volevo fare qualche domanda se ti va di parlare un po', mio: true },
+      { messaggio: 'fammi sapere se hai un minuto libero', mio: true }
+  ],
     active: false,
   },
 ];

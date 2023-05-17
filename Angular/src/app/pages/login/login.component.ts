@@ -1,14 +1,24 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/service/auth.service';
+import { ChatSingolaComponent } from '../chat/chat-singola/chat-singola.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  standalone: true
+  standalone: true,
+  imports: [
+    CommonModule,
+    ChatSingolaComponent,
+    FormsModule,
+    ReactiveFormsModule
+  ]
 })
 export default class LoginComponent implements OnInit {
   submitted: boolean = false;
