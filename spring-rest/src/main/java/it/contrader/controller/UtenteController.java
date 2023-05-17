@@ -22,7 +22,7 @@ public class UtenteController extends AbstractController<UtenteDTO>{
 
 	//POST Angular a UserDTO
 	@PostMapping(value = "/login")
-	public UtenteDTO login(@RequestBody LoginDTO loginDTO ) {
-		return utenteService.findByUsernameAndPassword(loginDTO.getUsername(), loginDTO.getPassword());
+	public UtenteDTO login(@RequestBody LoginDTO loginDTO ) throws Exception {
+		return utenteService.findByUsernameAndPassword (loginDTO.getUsername(), loginDTO.getPassword());
 	}
 }
