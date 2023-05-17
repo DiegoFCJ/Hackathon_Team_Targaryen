@@ -1,3 +1,19 @@
 *{
   margin: 0;
+  font-family: "Titillium Web", sans-serif;
+  color: white;
 }
+
+body, html{
+  background-color: #244258;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

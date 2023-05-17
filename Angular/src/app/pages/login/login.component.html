@@ -1,0 +1,88 @@
+<body>
+  <div class="section bg">
+    <div class="container">
+      <div class="row full-height justify-content-center">
+        <div class="col-12 text-center align-self-center py-5">
+          <div class="section pb-5 pt-5 pt-sm-2 text-center">
+            <h6 class=""><span class="lf">Entra</span><span class="rt">Registrati</span></h6>
+            <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+            <label for="reg-log"></label>
+
+            <div class="card-3d-wrap mx-auto">
+              <div class="card-3d-wrapper">
+
+                <div class="card-front">
+                  <div class="center-wrap">
+                    <div class="section text-center">
+                      <h4 class="mb-4 pb-3 tit">Login</h4>
+                      <form>
+                        <div class="form-group">
+                          <input required name="username" type="text" class="form-style form-control"
+                            placeholder="Inserisci Email/Username" autocomplete="off" />
+                          <i class="input-icon uil uil-at">➥</i>
+                        </div>
+                        <div class="form-group mt-2">
+                          <input required name="password" type="password" class="form-style form-control"
+                            placeholder="Inserisci Password" autocomplete="off" />
+                          <i class="input-icon uil uil-lock-alt">➥</i>
+                        </div>
+                        <div style="padding: 0;" class="form-group">
+                          <button class="form-control btn mt-4" (click)="cambiaPagina()">Entra</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-back">
+                  <div class="center-wrap">
+
+                    <div class="section text-center">
+                      <h4 class="mb-4 pb-3 tit">Registrazione</h4>
+                      <form>
+                        <div class="form-group mt-2">
+                          <i class="input-icon uil uil-user">➥</i>
+                          <input required name="name" type="text" class="form-style" placeholder="Il Tuo Nome" id="name"
+                            autocomplete="off">
+                        </div>
+
+                        <div class="form-group mt-2">
+                          <i class="input-icon uil uil-user">➥</i>
+                          <input required name="surname" type="text" class="form-style" placeholder="Inserisci il link del tuo profilo di Facebook"
+                            id="surname" autocomplete="off">
+                        </div>
+
+                        <div class="form-group mt-2">
+                          <i class="input-icon uil uil-user">➥</i>
+                          <input required name="username" type="text" class="form-style" placeholder="Inserisci il link del tuo profilo Instagram"
+                            id="username" autocomplete="off">
+                        </div>
+
+                        <div class="form-group mt-2">
+                          <i class="input-icon uil uil-user">➥</i>
+                          <input required name="email" type="text" class="form-style" placeholder="La Tua Email"
+                            id="email" autocomplete="off">
+                        </div>
+
+                        <div class="form-group mt-2">
+                          <i class="input-icon uil uil-user">➥</i>
+                          <input name="password" type="text" class="form-style" placeholder="La Tua Password" required
+                            id="password" autocomplete="off">
+                        </div>
+
+                        <div class="form-group">
+                          <button class="form-control btn mt-4">Registrati</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

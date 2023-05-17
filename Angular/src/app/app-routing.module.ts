@@ -10,7 +10,16 @@ const routes: Routes = [
   {
     path: 'landing-page',
     loadComponent: () => import ('./pages/landing-page/landing-page.component')
+  },
+  {
+    path: 'login',
+    loadComponent: () => import ('./pages/login/login.component')
+  },
+  {
+    path: 'chat',
+    loadComponent: () => import ('./pages/chat/chat.component')
   }
+
 ];
 
 @NgModule({
