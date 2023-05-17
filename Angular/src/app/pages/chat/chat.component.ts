@@ -32,14 +32,14 @@ export default class ChatComponent {
     let value = this.msg.value;
     this.msg.setValue('');
     setTimeout(() => {
-      if (value === 'ciao') {
+      if (value === 'ciao me come va?') {
         this.list[this.indexNumber].messaggi.push({
-          messaggio: 'Ciao ME, come va?',
+          messaggio: 'Tutto bene, tu?',
           mio: false,
         });
-      } else if (value === 'come stai') {
+      } else if (value === 'non male dai') {
         this.list[this.indexNumber].messaggi.push({
-          messaggio: 'Tutto bene e tu?',
+          messaggio: 'Perche\' che succede?',
           mio: false,
         });
       } else if (value === 'etero ?') {
