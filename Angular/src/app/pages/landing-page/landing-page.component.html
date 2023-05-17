@@ -1,4 +1,4 @@
-<div class="container1">
+<div class="container1" #first (scroll)="scroll()">
   <div class="menuBurger" (click)="open=!open" *ngIf="!open">
     <div class="menuLine"></div>
     <div class="menuLine"></div>
@@ -14,11 +14,11 @@
     <source src="../../../assets/landing-video.mp4" type="video/mp4">
   </video>
 </div>
-<div class="container1-descrizione">
+<div class="container1-descrizione" #second>
   <p class="descrizione">"Crediamo che tu sia unico e che la tua storia <br>non dovrebbe mai svanire nel nulla.
     Raccontami la tua vita, <br>le tue passioni e le tue avventure, io manterro' viva per sempre la tua memoria"</p>
 </div>
-<div class="container1-descrizione">
+<div class="container1-descrizione" #third>
   <p class="aboutUs">About Us: <br>"Attraverso la nostra avanzata tecnologia di clonazione della coscienza, permettiamo
     ai tuoi cari <br>di mantenere un dialogo significativo con te anche dopo la tua scomparsa. <br>ME ti offre
     l'opportunità di lasciare un'eredità duratura, un punto di riferimento per i tuoi affetti, dove le parole<br> e i

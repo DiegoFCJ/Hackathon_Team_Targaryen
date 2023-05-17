@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,6 +12,12 @@ import { Router } from '@angular/router';
 export default class LandingPageComponent {
   open=false;
   @ViewChild('videoPlayer', {static:false}) videoplayer!:ElementRef
+  @ViewChild('first', {static:false}) first!:ElementRef
+  @ViewChild('second', {static:false}) second!:ElementRef
+  @ViewChild('third', {static:false}) third!:ElementRef
+  @HostListener('window:scroll', ['$event']) onScroll() {
+  this.scroll()
+}
 
   constructor(private router: Router){
     this.videoplayer?.nativeElement.play();
@@ -21,4 +27,7 @@ export default class LandingPageComponent {
     this.router.navigate(['login'])
   }
 
+  scroll() {
+    console.log(this.first.nativeElement.offsetHeight)
+  }
 }

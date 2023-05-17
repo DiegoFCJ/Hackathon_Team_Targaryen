@@ -1,6 +1,5 @@
 body {
-  background-color: #74EBD5;
-  background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
+  background-color: #244258;
   min-height: 100vh;
 }
 ::-webkit-scrollbar {
@@ -46,3 +45,7 @@ input::placeholder {
   color: black;
 }
 
+.receiver {
+  position: absolute;
+  right: 0;
+}
