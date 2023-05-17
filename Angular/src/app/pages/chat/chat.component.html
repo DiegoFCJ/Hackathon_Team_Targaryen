@@ -10,9 +10,9 @@
 
 
           <div class="messages-box">
-            <div class="list-group rounded-0">
-              <a
-                class="list-group-item list-group-item-action active text-white rounded-0"
+            <div class="pointer list-group rounded-0">
+              <a (click)="indexNumber = 0"
+                class="coloreMe list-group-item list-group-item-action active text-white rounded-0"
               >
                 <div class="media d-flex align-items-center">
                   <img
@@ -25,7 +25,7 @@
                     <div
                       class="align-items-center justify-content-between mb-1"
                     >
-                      <h3 class="mb-0 mx-4">ME</h3>
+                      <h3 class="coloreMEEEEE mb-0 mx-4">ME</h3>
                     </div>
                   </div>
                 </div>
@@ -33,9 +33,9 @@
 
               <hr class="separatore" />
 
-              <div *ngFor="let item of list">
+              <div *ngFor="let item of list; let i = index" (click) = "setAction(i)">
                 <a
-                  class="list-group-item list-group-item-action list-group-item-light rounded-0"
+                  class="pointer list-group-item list-group-item-action list-group-item-light rounded-0" [ngClass]="item.active ? 'coloreAttivo active' : ''"
                 >
                   <div class="media d-flex align-items-center">
                     <img
@@ -48,7 +48,7 @@
                       <div
                         class="d-flex align-items-center justify-content-between mb-1"
                       >
-                        <h3 class="mb-0 mx-4 nomeCognome">
+                        <h3 class="mb-0 mx-4 nomeCognome"[ngClass]="item.active ? 'white' : ''">
                           {{ item.nome }} {{ item.cognome }}
                         </h3>
                         <!--<small class="small font-weight-bold">14 Dec</small>-->
@@ -63,13 +63,12 @@
       </div>
       <!-- Chat Box-->
       <div class="col-7 px-0">
-        <div class="messaggiNostri px-4 py-5 chat-box bg-white" #scroll>
-          <app-chat-singola [messages]="list[0].messaggi"></app-chat-singola>
+        <div class="messaggiNostri px-4 py-5 chat-box bg-not-white" #scroll>
+          <app-chat-singola [messages]="list[indexNumber].messaggi"></app-chat-singola>
         </div>
 
         <!-- Typing area -->
         <form action='#' class="bg-light">
-          <!--  tolto attributo action='#'-->
           <div class="input-group">
             <input
               (keydown.enter)="submit()"
@@ -77,13 +76,8 @@
               type="text"
               placeholder="Type a message"
               aria-describedby="button-addon2"
-              class="form-control rounded-0 border-0 py-4 bg-light"
+              class="form-control rounded-0 border-0 py-2 pb-3 bg-light"
             />
-            <div class="input-group-append">
-              <button id="button-addon2" type="button" class="btn btn-link">
-                <i class="fa fa-paper-plane"></i>
-              </button>
-            </div>
           </div>
         </form>
       </div>

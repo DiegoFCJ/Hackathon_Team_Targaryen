@@ -15,34 +15,40 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ChatSingolaComponent,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
 })
 export default class ChatComponent {
   list = Mock;
+  indexNumber: number = 0;
   msg: FormControl = new FormControl();
   @ViewChild('scroll') scroll!: ElementRef;
 
   submit() {
-    this.list[0].messaggi.push({ messaggio: this.msg.value, mio: true });
+    this.list[this.indexNumber].messaggi.push({
+      messaggio: this.msg.value,
+      mio: true,
+    });
     let value = this.msg.value;
     this.msg.setValue('');
-    console.log(value)
     setTimeout(() => {
       if (value === 'ciao') {
-        this.list[0].messaggi.push({
+        this.list[this.indexNumber].messaggi.push({
           messaggio: 'Ciao ME, come va?',
           mio: false,
         });
       } else if (value === 'come stai') {
-        this.list[0].messaggi.push({
+        this.list[this.indexNumber].messaggi.push({
           messaggio: 'Tutto bene e tu?',
           mio: false,
         });
       } else if (value === 'etero ?') {
-        this.list[0].messaggi.push({ messaggio: 'Certamente', mio: false });
+        this.list[this.indexNumber].messaggi.push({
+          messaggio: 'Certamente',
+          mio: false,
+        });
       } else {
-        this.list[0].messaggi.push({
+        this.list[this.indexNumber].messaggi.push({
           messaggio: 'Al momento sono impegnato, riprova piu tardi',
           mio: false,
         });
@@ -54,5 +60,19 @@ export default class ChatComponent {
   goToBottom() {
     this.scroll.nativeElement.scrollTop =
       this.scroll.nativeElement.scrollHeight;
+  }
+  setAction(index: number) {
+    console.log(index);
+    this.indexNumber = index;
+    this.list.map((item, i) => {
+      console.log(i);
+
+      if (index !== i) {
+        item.active = false;
+      } else {
+        item.active = true;
+      }
+    });
+    console.log(this.list);
   }
 }
