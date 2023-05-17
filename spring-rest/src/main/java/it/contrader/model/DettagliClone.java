@@ -21,13 +21,13 @@ public class DettagliClone {
     private long UniqueID;
 
     @Column(unique = true)
-    private String nome;
+    private String pazienza;
 
-    private String cognome;
+    private String autodisciplina;
 
-    private String sesso;
+    private String empatia;
 
-    private double altezza;
+    private double tolleranza;
 
     private double peso;
 
