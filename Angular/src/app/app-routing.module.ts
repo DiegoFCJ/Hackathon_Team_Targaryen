@@ -1,17 +1,25 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-/**
- * Questo è un modulo di routing. Essendo il modulo principale deve UNICAMENTE 
- * eseguire il redirect sul persorso /login (modulo di login) e NON DEVE contenere
- * altri percorsi: questi vanno specificati nei vari sotto-moduli di routing.
- * 
- * @see LoginRoutingModule
- * 
- * @author Vittorio Valent
- */
 const routes: Routes = [
-  { path: '', redirectTo:'/login', pathMatch: 'full' },
+  {
+    path: '',
+    redirectTo: 'landing-page',
+    pathMatch: 'full'
+  },
+  {
+    path: 'landing-page',
+    loadComponent: () => import ('./pages/landing-page/landing-page.component')
+  },
+  {
+    path: 'login',
+    loadComponent: () => import ('./pages/login/login.component')
+  },
+  {
+    path: 'chat',
+    loadComponent: () => import ('./pages/chat/chat.component')
+  }
+
 ];
 
 @NgModule({

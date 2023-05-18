@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LoginDTO } from 'src/dto/logindto';
-import { UserDTO } from 'src/dto/userdto';
+import { UtenteDTO } from 'src/dto/utenteDTO';
 import { environment } from 'src/environments/environment';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
@@ -16,14 +16,14 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {
   }
 
-  login(loginDTO: LoginDTO): Observable<UserDTO> {
+  login(loginDTO: LoginDTO): Observable<UtenteDTO> {
     return this.http.post<any>(environment.APIEndpoint + this.type + '/login', loginDTO)
   }
 
   logout() {
     localStorage.removeItem('user');
     this.router.navigateByUrl('');
-  } 
+  }
 
   fullLogout() {
     localStorage.clear();
@@ -35,7 +35,8 @@ export class AuthService {
   }
 
   getCurrentUser() {
-    return JSON.parse(localStorage.getItem('user')) as UserDTO;
+    let userString = localStorage.getItem('user');
+    return userString ? JSON.parse(userString) as UtenteDTO : null;
   }
 
   saveUserInLocalStorage(loginData: Partial<LoginDTO>) {
@@ -43,17 +44,7 @@ export class AuthService {
     return of('login ok');
   }
 
-  isAdminOrUser(user: UserDTO, usertype: string){
-    if(user === null){
-      this.router.navigateByUrl('');
-    }
-    if(user.usertype.toString() !== usertype && usertype === 'USER'){
-      alert('Sei un ADMIN non hai le autorizzazioni necessarie per accedere a questa pagina');
-      this.router.navigate(['/admin-dashboard']);
-    }
-    if(user.usertype.toString() !== usertype && usertype === 'ADMIN'){
-      alert('Sei un USER non hai le autorizzazioni necessarie per accedere a questa pagina');
-      this.router.navigate(['/admin-dashboard']);
-    }
+  register(user: UtenteDTO){
+    return this.http.post<any>(environment.APIEndpoint + this.type + '/insert', user);
   }
 }

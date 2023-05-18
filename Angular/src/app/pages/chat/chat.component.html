@@ -1,0 +1,88 @@
+<body>
+  <div class="container1 py-5 px-4">
+    <div class="row rounded-lg overflow-hidden shadow">
+      <!-- Users box-->
+      <div class="col-5 px-0">
+        <div class="bg-white">
+          <div class="bg-gray px-4 py-2 bg-light">
+            <p class="chat h5 mb-0 py-1">CHAT</p>
+          </div>
+
+
+          <div class="messages-box">
+            <div class="pointer list-group rounded-0">
+              <a (click)="indexNumber = 0"
+                class="coloreMe list-group-item list-group-item-action active text-white rounded-0"
+              >
+                <div class="media d-flex align-items-center">
+                  <img
+                    src="https://therichpost.com/wp-content/uploads/2020/06/avatar2.png"
+                    alt="user"
+                    width="50"
+                    class="rounded-circle"
+                  />
+                  <div class="media-body ml-4">
+                    <div
+                      class="align-items-center justify-content-between mb-1"
+                    >
+                      <h3 class="coloreMEEEEE mb-0 mx-4">ME</h3>
+                    </div>
+                  </div>
+                </div>
+              </a>
+
+              <hr class="separatore" />
+
+              <div *ngFor="let item of list; let i = index" (click)="setAction(i)">
+                <div *ngIf="item.nome != ''">
+                <a
+                  class="pointer list-group-item list-group-item-action list-group-item-light rounded-0" [ngClass]="item.active ? 'coloreAttivo active' : ''"
+                >
+                  <div class="media d-flex align-items-center">
+                    <img
+                      src="https://therichpost.com/wp-content/uploads/2020/06/avatar2.png"
+                      alt="user"
+                      width="50"
+                      class="rounded-circle"
+                    />
+                    <div class="media-body ml-4">
+                      <div
+                        class="d-flex align-items-center justify-content-between mb-1"
+                      >
+                        <h3 class="mb-0 mx-4 nomeCognome"[ngClass]="item.active ? 'white' : ''">
+                          {{ item.nome }} {{ item.cognome }}
+                        </h3>
+                        <!--<small class="small font-weight-bold">14 Dec</small>-->
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <!-- Chat Box-->
+      <div class="col-7 px-0">
+        <div class="messaggiNostri px-4 py-5 chat-box bg-not-white" #scroll>
+          <app-chat-singola [messages]="list[indexNumber].messaggi"></app-chat-singola>
+        </div>
+
+        <!-- Typing area -->
+        <form action='#' class="bg-light">
+          <div class="input-group">
+            <input
+              (keydown.enter)="submit()"
+              [formControl]="msg"
+              type="text"
+              placeholder="Type a message"
+              aria-describedby="button-addon2"
+              class="form-control rounded-0 border-0 py-2 pb-3 bg-light"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>

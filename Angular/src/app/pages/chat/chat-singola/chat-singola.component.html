@@ -1,0 +1,9 @@
+<div class="media ml-auto mb-3 d-flex" *ngFor="let item of messages" [ngClass]="item.mio ? 'justify-content-end' : 'justify-content-start'">
+  <div class="media-body">
+    <div class="rounded py-2 px-3 mb-2" [ngClass]="item.mio ? 'bg-primary' : 'bg-light'">
+      <p class="text-small mb-0 " [ngClass]="item.mio ? 'text-white' : 'text-muted'">{{item.messaggio}}</p>
+    </div>
+    <p class="small text-muted">12:00 PM | Aug 13</p>
+  </div>
+
+</div>
