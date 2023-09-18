@@ -5,10 +5,10 @@ FROM khipu/openjdk17-alpine
 WORKDIR /app
 
 # Copia il tuo JAR del backend dalla directory locale al container
-COPY hackaTarg-0.0.1-SNAPSHOT.jar .
+COPY build/libs/hackatarg-0.0.1-snapshot.jar .
 
 # Esponi la porta in cui il tuo backend Spring Boot sta ascoltando
 EXPOSE 8080
 
 # Comando per avviare il tuo backend
-CMD ["java", "-jar", "hackaTarg-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "hackatarg-0.0.1-snapshot.jar"]
