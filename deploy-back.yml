@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: back
-          image:  hackatarg-0.0.1-snapshot:latest
+          image: diegofois/targaryen/hackatarg-0.0.1-snapshot:back-v1
           ports:
             - containerPort: 8080
