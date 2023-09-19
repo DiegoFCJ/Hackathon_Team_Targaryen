@@ -17,7 +17,7 @@ RUN npm install -g @angular/cli
 COPY . .
 
 # Compila l'app Angular in modalità produzione
-RUN npm start
+RUN ng build
 
 # Utilizza un'immagine NGINX come base per il server web
 FROM nginx:alpine
