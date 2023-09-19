@@ -19,8 +19,14 @@ COPY . .
 # Compila l'app Angular in modalità produzione
 RUN ng build
 
+# Utilizza un'immagine NGINX come base per il server web
+FROM nginxinc/nginx-unprivileged
+
+# Copia i file compilati dall'immagine di build nell'immagine NGINX
+COPY --from=build /usr/src/app/dist /usr/share/nginx/html
+
 # Esponi la porta 80
-EXPOSE 4200
+EXPOSE 80
 
 # Avvia NGINX
-CMD ["npm", "start"]
+CMD ["nginx", "-g", "daemon off;"]
