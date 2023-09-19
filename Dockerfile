@@ -2,7 +2,7 @@
 FROM khipu/openjdk17-alpine
 
 # Copia il tuo JAR del backend dalla directory locale al container
-COPY build/libs/targ-v1.jar .
+COPY targ-v1.jar .
 
 # Esponi la porta in cui il tuo backend Spring Boot sta ascoltando
 EXPOSE 8080
