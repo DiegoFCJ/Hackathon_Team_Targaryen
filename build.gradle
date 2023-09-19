@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'it.contrader'
-version = '0.0.1-snapshot'
+version = 'v1'
 
 java {
 	sourceCompatibility = '17'
