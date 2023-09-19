@@ -28,12 +28,5 @@ COPY --from=build /usr/src/app/dist /usr/share/nginx/html
 # Esponi la porta 80
 EXPOSE 80
 
-# Aggiungi queste righe per gestire i permessi
-USER root
-RUN mkdir -p /var/cache/nginx/client_temp && \
-    chown -R nginx:nginx /var/cache/nginx && \
-    chmod -R 755 /var/cache/nginx
-USER nginx
-
 # Avvia NGINX
 CMD ["nginx", "-g", "daemon off;"]
