@@ -20,7 +20,7 @@ COPY . .
 RUN ng build
 
 # Utilizza un'immagine NGINX come base per il server web
-FROM nginx:alpine
+FROM nginxinc/nginx-unprivileged 
 
 # Copia i file compilati dall'immagine di build nell'immagine NGINX
 COPY --from=build /usr/src/app/dist /usr/share/nginx/html
