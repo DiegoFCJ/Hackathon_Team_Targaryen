@@ -1,4 +1,4 @@
-# Fase di build: usa un'immagine Node.js basata sulla tua versione specifica
+# Usa un'immagine Node.js basata sulla tua versione specifica
 FROM node as build
 
 # Imposta la directory di lavoro all'interno del container Docker
@@ -19,7 +19,7 @@ COPY . .
 # Compila l'app Angular in modalità produzione
 RUN ng build
 
-# Fase finale: utilizza un'immagine NGINX come base per il server web
+# Utilizza un'immagine NGINX come base per il server web
 FROM nginx:alpine
 
 # Copia i file compilati dall'immagine di build nell'immagine NGINX
@@ -27,6 +27,13 @@ COPY --from=build /usr/src/app/dist /usr/share/nginx/html
 
 # Esponi la porta 80
 EXPOSE 80
+
+# Aggiungi queste righe per gestire i permessi
+USER root
+RUN mkdir -p /var/cache/nginx/client_temp && \
+    chown -R nginx:nginx /var/cache/nginx && \
+    chmod -R 755 /var/cache/nginx
+USER nginx
 
 # Avvia NGINX
 CMD ["nginx", "-g", "daemon off;"]
