@@ -1,4 +1,4 @@
-# Usa un'immagine Node.js basata sulla tua versione specifica
+# Fase di build: usa un'immagine Node.js basata sulla tua versione specifica
 FROM node as build
 
 # Imposta la directory di lavoro all'interno del container Docker
@@ -19,7 +19,7 @@ COPY . .
 # Compila l'app Angular in modalità produzione
 RUN ng build
 
-# Utilizza un'immagine NGINX come base per il server web
+# Fase finale: utilizza un'immagine NGINX come base per il server web
 FROM nginx:alpine
 
 # Copia i file compilati dall'immagine di build nell'immagine NGINX
