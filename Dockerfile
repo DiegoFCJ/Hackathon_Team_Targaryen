@@ -1,32 +1,53 @@
 # Usa un'immagine Node.js basata sulla tua versione specifica
-FROM node as build
+#FROM node as build
 
 # Imposta la directory di lavoro all'interno del container Docker
-WORKDIR /usr/src/app
+#WORKDIR /usr/src/app
 
 # Copia il file package.json e package-lock.json
-COPY package*.json ./
+#COPY package*.json ./
 
 # Installa le dipendenze
-RUN npm install
+#RUN npm install
 
 # Installa Angular CLI globalmente
-RUN npm install -g @angular/cli
+#RUN npm install -g @angular/cli
 
 # Copia i file del progetto nell'immagine Docker
-COPY . .
+#COPY . .
 
 # Compila l'app Angular in modalità produzione
-RUN ng build
+#RUN ng build
 
 # Utilizza un'immagine NGINX come base per il server web
-FROM nginxinc/nginx-unprivileged
+#FROM nginxinc/nginx-unprivileged
 
 # Copia i file compilati dall'immagine di build nell'immagine NGINX
-COPY --from=build /usr/src/app/dist /usr/share/nginx/html
+#COPY --from=build /usr/src/app/dist /usr/share/nginx/html
 
 # Esponi la porta 80
-EXPOSE 80
+#EXPOSE 80
 
 # Avvia NGINX
+#CMD ["nginx", "-g", "daemon off;"]
+
+# Fase di build
+FROM node as build
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN npm install
+RUN npm install -g @angular/cli
+COPY . .
+RUN ng build
+
+# Fase di esecuzione con NGINX
+FROM nginxinc/nginx-unprivileged
+
+COPY --from=build /usr/src/app/dist /usr/share/nginx/html
+
+EXPOSE 80
+
 CMD ["nginx", "-g", "daemon off;"]
