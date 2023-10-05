@@ -13,7 +13,7 @@ import it.contrader.targ.service.UtenteService;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://172.30.33.189:8111")
 public class UtenteController extends AbstractController<UtenteDTO>{
 	
 	@Autowired
