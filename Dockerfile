@@ -9,5 +9,3 @@ EXPOSE 8080
 
 # Comando per avviare il tuo backend
 CMD ["java", "-jar", "targ-v1.jar"]
-
-#cavallo
