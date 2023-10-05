@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/dettagliClone")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://172.30.33.189:8111")
 public class DettagliCloneController extends AbstractController<DettagliCloneDTO>{
 
     @Autowired
