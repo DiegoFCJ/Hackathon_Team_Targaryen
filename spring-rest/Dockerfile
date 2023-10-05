@@ -1,5 +1,3 @@
-LABEL authors="diego"
-
 # Usa un'immagine di base di Java 17 da AdoptOpenJDK su Alpine Linux
 FROM khipu/openjdk17-alpine
 
