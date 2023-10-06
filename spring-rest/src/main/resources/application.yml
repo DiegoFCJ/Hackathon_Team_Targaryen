@@ -4,6 +4,7 @@ spring:
     url: jdbc:mysql://mysql:3306/hackathon_targaryen?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
     password: root
+    initialization-mode: always
     testWhileIdle: true
     validationQuery: SELECT 1
   jpa:
