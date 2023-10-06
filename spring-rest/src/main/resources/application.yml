@@ -1,7 +1,7 @@
 # DataSource settings: imposta qui le tue configurazioni personali per il database
 spring:
   datasource:
-    url: jdbc:mysql://172.30.188.69:3306/hackathon_targaryen?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    url: jdbc:mysql://mysql:3306/hackathon_targaryen?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
     password: root
     testWhileIdle: true
